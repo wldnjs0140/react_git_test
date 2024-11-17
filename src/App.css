@@ -114,23 +114,9 @@ body {
   background-color: #2b6cb0;
   transform: translateY(-2px);
 }
-/* li 스타일 */
-.menuDiv ul li {
-  position: relative; /* 버튼 위치를 기준으로 삼기 위한 설정 */
-  font-size: 1.2em;
-  color: #555;
-  padding: 8px 0;
-  text-align: center; /* 텍스트를 왼쪽 정렬 */
-  transition: color 0.3s ease;
-}
-
-/* li 버튼 스타일 */
-.menuDiv ul li button {
-  position: absolute; /* 버튼 위치를 li 내에서 고정 */
-  top: 50%; /* li의 수직 가운데 정렬 */
-  right: 40px; /* li의 오른쪽에서 10px 떨어짐 */
-  transform: translateY(-50%); /* 수직 가운데 정렬을 위한 보정 */
-  margin-left: 0; /* 기본 스타일 무시 */
+li button {
+  position: absolute;
+  margin-left: 50px;
   padding-bottom: 5px;
   padding-top: 4px;
   border-radius: 50%;
@@ -140,10 +126,9 @@ body {
   background-color: #3182ce;
   color: #fff;
 }
-
-/* li 버튼 호버 스타일 */
-.menuDiv ul li button:hover {
+li button:hover {
   background-color: #2b6cb0;
+  transform: translateY(-2px);
 }
 :any-link button:hover {
   background-color: #2b6cb0;
@@ -153,6 +138,15 @@ body {
 .menuDiv ul {
   list-style-type: none;
   padding: 0;
+}
+
+.menuDiv ul li {
+  position: relative;
+  font-size: 1.2em;
+  color: #555;
+  padding: 8px 0;
+  text-align: center;
+  transition: color 0.3s ease;
 }
 
 .menuDiv ul li:hover {
