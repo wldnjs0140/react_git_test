@@ -12,12 +12,27 @@ function App() {
   ]);
 
   const [showModal, setShowModal] = useState(false);
+  const [detailData, setDetailData] = useState({});
+  const [modalMode, setModalMode] = useState();
 
   return (
     <div className="app">
-      <Header setShowModal={setShowModal}></Header>
-      <Menu foods={foods}></Menu>
-      {showModal && <Modal setShowModal={setShowModal} setFoods={setFoods} />}
+      <Header setModalMode={setModalMode} setShowModal={setShowModal}></Header>
+      <Menu
+        setDetailData={setDetailData}
+        foods={foods}
+        setFoods={setFoods}
+        setShowModal={setShowModal}
+        setModalMode={setModalMode}
+      ></Menu>
+      {showModal && (
+        <Modal
+          detailData={detailData}
+          setShowModal={setShowModal}
+          setFoods={setFoods}
+          modalMode={modalMode}
+        />
+      )}
     </div>
   );
 }
