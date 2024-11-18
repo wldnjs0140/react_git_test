@@ -16,6 +16,10 @@ function Modal({ setShowModal, setFoods, mode, editData }) {
     const foodTypeRef = inputFoodType.current.value;
     const foodMenuRef = inputFoodMenu.current.value;
 
+    if (!foodTypeRef || !foodMenuRef) {
+      alert('음식 타입과 메뉴를 입력해주세요!');
+      return;
+    }
     if (mode === 'add') {
       // 추가 로직
       setFoods((prev) => {
@@ -57,7 +61,12 @@ function Modal({ setShowModal, setFoods, mode, editData }) {
       <div className="modal">
         <label>
           음식타입
-          <input className="foodInput" ref={inputFoodType} type="text" />
+          <input
+            className="foodInput"
+            ref={inputFoodType}
+            type="text"
+            readOnly={modalMode === 'edit'}
+          />
         </label>
 
         <div className="modal_content">
