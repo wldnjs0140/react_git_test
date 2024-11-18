@@ -18,6 +18,11 @@ function Menu(props) {
     setMode('edit');
   };
 
+  const handleEditTitle = (type) => {
+    setShowModal(true);
+    setEditData({ foodType: type }); // 선택한 정보 전달
+    setMode('edit');
+  };
   const handlSearch = (type) => {
     // console.log(type);
     setSearchType(type);
@@ -60,12 +65,14 @@ function Menu(props) {
         .filter((food) => searchType === '전체' || food.foodType === searchType)
         .map((food, idx) => (
           <div key={idx} className="menuDiv">
-            <h3>
-              {food.foodType}
+            <div className="titleDiv">
+              <h3 onClick={() => handleEditTitle(`${food.foodType}`)}>
+                {food.foodType}
+              </h3>
               <button onClick={() => handleTypeDelete(`${food.foodType}`)}>
                 X
               </button>
-            </h3>
+            </div>
 
             <ul>
               {food.foodMenu.map((menu, idx) => (
