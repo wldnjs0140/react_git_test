@@ -65,7 +65,7 @@ function Modal({ setShowModal, setFoods, mode, editData }) {
             className="foodInput"
             ref={inputFoodType}
             type="text"
-            readOnly={modalMode === 'edit'}
+            readOnly={mode === 'edit'}
           />
         </label>
 
